@@ -154,8 +154,10 @@ function ConfigureAdminForm(formElement, urlCallback, successHandler, responseHa
 		var dialogOpts = {
 		        modal: true,
 		        autoOpen: false,
-		        height: dialogHeight,
-		        width: dialogWidth
+		        height: 'auto',
+		        width: 'auto'
+		      /*  height: dialogHeight,
+		        width: dialogWidth */
 		    };
 		        
 		dialogElement.dialog(dialogOpts);
