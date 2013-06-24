@@ -53,7 +53,8 @@ function Reservation(opts) {
 		});
 
 		$('#dialogAddResources').dialog({
-			height: 300,
+			height: 'auto',
+			width: 'auto',
 			open: function(event, ui) {
 				InitializeCheckboxes('#dialogAddResources', '#additionalResources');
 				return true;
