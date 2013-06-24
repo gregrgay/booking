@@ -871,3 +871,6 @@ color:#eeeeee;
 #dialogAddResources{
 width:500px !important;
 }
+.idi-uio-button{
+    background-image: url("../img/preferences.png");
+}

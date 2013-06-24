@@ -97,3 +97,10 @@ option.resource
     text-align: right;
     padding: 10px 0px;
 }
+
+.fc-event-inner, .fc-event-skin{
+	border-color: #36c;     /* default BORDER color */
+	background-color: #36c; /* default BACKGROUND color */
+	color: #fff;            /* default TEXT color */
+	}
+	
