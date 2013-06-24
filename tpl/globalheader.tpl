@@ -30,6 +30,13 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 {/if}
 	<link rel="shortcut icon" href="{$Path}favicon.ico"/>
 	<link rel="icon" href="{$Path}favicon.ico"/>
+<script type="text/javascript" src="{$Path}scripts/idi.js" ></script>
+<script type="text/javascript" src="{$Path}scripts/infusion/MyInfusion.js"></script>
+<script type="javacsript">
+<!--
+jQuery.noConflict();
+-->
+</script>
 	{if $UseLocalJquery}
 		<script type="text/javascript" src="{$Path}scripts/js/jquery-1.8.2.min.js"></script>
 		<script type="text/javascript" src="{$Path}scripts/js/jquery-ui-1.9.0.custom.min.js"></script>
@@ -72,8 +79,74 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 		initMenu();
 		});
 	</script>
+	
+<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/framework/fss/css/fss-layout.css" />
+<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/framework/fss/css/fss-text.css" />
+<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/components/uiOptions/css/fss/fss-theme-bw-uio.css" />
+<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/components/uiOptions/css/fss/fss-theme-wb-uio.css" />
+<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/components/uiOptions/css/fss/fss-theme-by-uio.css" />
+<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/components/uiOptions/css/fss/fss-theme-yb-uio.css" />
+<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/components/uiOptions/css/fss/fss-text-uio.css" />
+
+<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/lib/jquery/ui/css/fl-theme-hc/hc.css" />
+<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/lib/jquery/ui/css/fl-theme-hci/hci.css" />
+<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/lib/jquery/ui/css/fl-theme-blackYellow/blackYellow.css" />
+<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/lib/jquery/ui/css/fl-theme-yellowBlack/yellowBlack.css" />
+
+<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/components/uiOptions/css/FatPanelUIOptions.css" />
+
+
+
 </head>
 <body>
+<!-- Fluid UI Options -->
+<div class="flc-uiOptions-fatPanel fl-uiOptions-fatPanel">
+    <!-- This is the div that will contain the UI Options component -->
+    <div id="myUIOptions" class="flc-slidingPanel-panel flc-uiOptions-iframe"></div>
+ 
+    <!-- This div is for the sliding panel that shows and hides the UI Options controls -->
+    <div class="fl-panelBar">
+        <button class="flc-slidingPanel-toggleButton fl-toggleButton">Preferences</button>
+    </div>
+</div> 
+
+<script type="text/javascript">
+    // Instantiate the UI Enhancer component, specifying the table of contents' template URL
+    var expire_when = 'Mon, 31 Dec 2015 23:59:00 UTC';
+    fluid.pageEnhancer({
+        tocTemplate: "{$Path}scripts/infusion/components/tableOfContents/html/TableOfContents.html",
+        classnameMap: {
+            theme: {
+                "default": "uio-demo-theme"
+            }
+        },
+        components: {   
+            settingsStore:{
+            options: {
+               cookie: {
+                     expires: expire_when
+                    } 
+                }
+            }
+        }
+    });
+
+    // Start up UI Options
+    fluid.uiOptions.fatPanel(".flc-uiOptions-fatPanel", {
+        prefix: "{$Path}scripts/infusion/components/uiOptions/html/",
+	          // Provide custom strings for slidingPanel button
+            slidingPanel: {
+                options: {
+                    strings: {
+                        showText: "Preferences",
+                        hideText: "Preferences"
+                    }
+                }
+            }
+    });
+</script>
+
+<!-- // End UI Options -->
 <div id="wrapper">
 <a href="#content" class="skiplink" accesskey="c">jump to content (c)</a><a href="#menu" class="skiplink" accesskey="m">jump to main navigation (m)</a>
 	<div id="doc">

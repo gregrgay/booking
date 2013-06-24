@@ -40,6 +40,10 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
     </select>
     <input type="submit" value="Fliter">
 </form>
+
+{if isset($v)}
+
+{/if}
 </div>
 	<div class="title">
 	<strong> Showing 
@@ -50,9 +54,12 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 	{/if}
 	</strong><br /><br/>
 	</div>
+
 {foreach from=$Resources item=resource}
+
 	{assign var=id value=$resource->GetResourceId()}
 	{if !$smarty.post.schedule || $smarty.post.schedule==$resource->GetScheduleId()}
+	{assign var=thiscount value=($thiscount+1)}
 	<div class="resourceDetails" resourceId="{$id}">
 		<div style="float:left;max-width:100%;">
 			<input type="hidden" class="id" value="{$id}"/>
@@ -245,8 +252,10 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 	<br />
 	{/if}
 {/foreach}
-</div>
-
+</div>{$thiscount}
+{if count($thiscount) eq 0}
+No {$thistype} found.
+{/if}
 
 <!--
 <div class="admin" style="margin-top:30px">

@@ -28,12 +28,12 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 {foreach from=$Resources item=resource}
 	{assign var=id value=$resource->GetResourceId()}
 	<div class="resourceDetails" resourceId="{$id}">
-		<div style="float:left;max-width:50%;">
+		<div style="float:left;max-width:100%;">
 			<input type="hidden" class="id" value="{$id}"/>
 
-			<div style="float:left; text-align:center; width:110px;">
+			<div style="float:left; text-align:top; width:140px;">
 				{if $resource->HasImage()}
-					<img src="{resource_image image=$resource->GetImage()}" alt="Resource Image" class="image"/><br/>
+					<img src="{resource_image image=$resource->GetImage()}" alt="Resource Image" class="image" style="margin-left:.8em;"/><br/>
 					<a class="update imageButton" href="javascript: void(0);">{translate key='Change'}</a> |
 					<a class="update removeImageButton" href="javascript: void(0);">{translate key='Remove'}</a>
 					{else}
@@ -41,8 +41,10 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 					<a class="update imageButton" href="javascript: void(0);">{translate key='AddImage'}</a>
 				{/if}
 			</div>
-			<div style="float:right;">
-				<ul>
+			</div>
+		<div class="resourceDetails">
+			<div style="float:left;width:28%;">
+				<ul style="padding:1em;width:90%;">
 					<li>
 						<h4>{$resource->GetName()|escape}</h4>
 						<a class="update renameButton" href="javascript:void(0);">{translate key='Rename'}</a> |
@@ -127,12 +129,12 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 				</ul>
 			</div>
 		</div>
-		<div style="float:right">
+		<div style="width:56%; float:right;">
 			<div>
 				<h5>{translate key='UsageConfiguration'}</h5> <a class="update changeConfigurationButton"
 																 href="javascript: void(0);">{translate key='ChangeConfiguration'}</a>
 			</div>
-			<div style="float:left;width:300px;">
+			<div style="float:left;width:46%;">
 				<ul>
 					<li>
 						{if $resource->HasMinLength()}
@@ -165,7 +167,7 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 				</ul>
 			</div>
 
-			<div style="float:right;width:300px;">
+			<div style="float:right;width:46%;">
 				<ul>
 					<li>
 						{if $resource->HasMinNotice()}
@@ -199,7 +201,7 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 			</div>
 		</div>
 		{if $Definitions|count > 0}
-			<div class="customAttributes">
+			<div class="customAttributes"">
 				<h3>{translate key=AdditionalAttributes} <a href="#"
 															class="update changeAttributes">{translate key=Edit}</a>
 				</h3>
@@ -272,8 +274,9 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 <input type="hidden" id="activeId" value=""/>
 
 <div id="imageDialog" class="dialog" style="display:none;" title="{translate key=AddImage}">
+
 	<form id="imageForm" method="post" enctype="multipart/form-data">
-		<input id="resourceImage" type="file" class="text" size="60" {formname key=RESOURCE_IMAGE} />
+		<input id="resourceImage" type="file" class="text" size="40" {formname key=RESOURCE_IMAGE} />
 		<br/>
 		<span class="note">.gif, .jpg, or .png</span>
 		<br/><br/>
@@ -631,5 +634,4 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 	;
 
 </script>
-
 {include file='globalfooter.tpl'}
