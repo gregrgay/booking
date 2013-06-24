@@ -19259,7 +19259,8 @@ $.widget("ui.dialog", {
 		show: null,
 		stack: true,
 		title: '',
-		width: 300,
+		width: 'auto',
+		height:'auto',
 		zIndex: 1000
 	},
 
