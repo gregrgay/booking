@@ -53,7 +53,8 @@ class Pages
 		1 => array('url' => Pages::DASHBOARD, 'name' => 'MyDashboard'),
 		2 => array('url' => Pages::SCHEDULE, 'name' => 'Schedule'),
 		3 => array('url' => Pages::MY_CALENDAR, 'name' => 'MyCalendar'),
-		4 => array('url' => Pages::CALENDAR, 'name' => 'ResourceCalendar')
+		4 => array('url' => Pages::CALENDAR, 'name' => 'ResourceCalendar'),
+		5 => array('url' => Pages::BROWSE, 'name' => 'BrowseResources')
 	);
 
 	private function __construct()
