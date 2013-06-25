@@ -553,6 +553,7 @@ class en_us extends Language
 		$strings['OpenInvitations'] = 'Open Invitations';
 		$strings['MyCalendar'] = 'My Calendar';
 		$strings['ResourceCalendar'] = 'Resource Calendar';
+		$strings['BrowseResources'] = 'Browse Resources';
 		$strings['Reservation'] = 'New Reservation';
 		$strings['Install'] = 'Installation';
 		$strings['ChangePassword'] = 'Change Password';
