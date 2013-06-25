@@ -22,7 +22,7 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 <html
 		xmlns="http://www.w3.org/1999/xhtml" lang="{$HtmlLang}" xml:lang="{$HtmlLang}" dir="{$HtmlTextDirection}">
 <head>
-	<title>{if $TitleKey neq ''}{translate key=$TitleKey args=$TitleArgs}{else}{$Title}{/if}</title>
+	<title>{if $TitleKey neq ''}{translate key=$TitleKey args=$TitleArgs}{else}{$Title}{/if} | Inclusive Design Institute</title>
 	<meta http-equiv="Content-Type" content="text/html; charset={$Charset}"/>
 	<meta name="robots" content="noindex" />
 {if $ShouldLogout}
