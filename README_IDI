@@ -1,0 +1,175 @@
+#####
+# IDI README for phpScheduleIt
+#####
+
+This readme describes the primary changes made to phpSchedule for use as the IDI Booking System.
+
+1. The addition of Fluid's UIOptions. This is added to tpl/globalheader.php
+
+After favicon.ico link add:
+<script type="text/javascript" src="{$Path}scripts/infusion/MyInfusion.js"></script>
+<script type="javacsript">
+<!--
+jQuery.noConflict();
+-->
+</script>
+
+After the end of the script block in the head of the file, add:
+<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/framework/fss/css/fss-layout.css" />
+<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/framework/fss/css/fss-text.css" />
+<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/components/uiOptions/css/fss/fss-theme-bw-uio.css" />
+<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/components/uiOptions/css/fss/fss-theme-wb-uio.css" />
+<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/components/uiOptions/css/fss/fss-theme-by-uio.css" />
+<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/components/uiOptions/css/fss/fss-theme-yb-uio.css" />
+<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/components/uiOptions/css/fss/fss-text-uio.css" />
+<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/lib/jquery/ui/css/fl-theme-hc/hc.css" />
+<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/lib/jquery/ui/css/fl-theme-hci/hci.css" />
+<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/lib/jquery/ui/css/fl-theme-blackYellow/blackYellow.css" />
+<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/lib/jquery/ui/css/fl-theme-yellowBlack/yellowBlack.css" />
+<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/components/uiOptions/css/FatPanelUIOptions.css" />
+
+Immediately after the opening body element, add:
+<!-- Fluid UI Options -->
+<div class="flc-uiOptions-fatPanel fl-uiOptions-fatPanel">
+    <!-- This is the div that will contain the UI Options component -->
+    <div id="myUIOptions" class="flc-slidingPanel-panel flc-uiOptions-iframe"></div>
+ 
+    <!-- This div is for the sliding panel that shows and hides the UI Options controls -->
+    <div class="fl-panelBar">
+        <button class="flc-slidingPanel-toggleButton fl-toggleButton">Preferences</button>
+    </div>
+</div> 
+
+<script type="text/javascript">
+    // Instantiate the UI Enhancer component, specifying the table of contents' template URL
+    var expire_when = 'Mon, 31 Dec 2015 23:59:00 UTC';
+    fluid.pageEnhancer({
+        tocTemplate: "{$Path}scripts/infusion/components/tableOfContents/html/TableOfContents.html",
+        classnameMap: {
+            theme: {
+                "default": "uio-demo-theme"
+            }
+        },
+        components: {   
+            settingsStore:{
+            options: {
+               cookie: {
+                     expires: expire_when
+                    } 
+                }
+            }
+        }
+    });
+
+    // Start up UI Options
+    fluid.uiOptions.fatPanel(".flc-uiOptions-fatPanel", {
+        prefix: "{$Path}scripts/infusion/components/uiOptions/html/",
+	          // Provide custom strings for slidingPanel button
+            slidingPanel: {
+                options: {
+                    strings: {
+                        showText: "Preferences",
+                        hideText: "Preferences"
+                    }
+                }
+            }
+    });
+</script>
+
+<!-- // End UI Options -->
+
+2. Change the main navigation menu with a keyboard accessible one. Replace scripts/menubar.js with  scripts/menu_new.js in the head. And copy the menu_new.php into the Web/scripts/ directory
+
+3. Create a Browse page. this include the following files 
+
+tpl/browser_resources.tpl
+Pages/BrowseResourcesPage.php
+Presenters/BrowseResourcesPresenter.php
+
+#Also add a reference to the tpl/globalheader.tpl
+<li class="mainli" ><a href="{$Path}{Pages::BROWSE}">{translate key="Browse"}</a></li>
+
+#Define BROWSE in Pages/Pages.php along with the other pages defined
+const BROWSE = 'browse_resources.php';
+
+#Define the language in lang/en_us.php
+$strings['BrowseResources'] = 'Browse Resources';
+
+#Define the page Title in Pages.php in the $_pages array()
+5 => array('url' => Pages::BROWSE, 'name' => 'BrowseResources')
+
+4. Update style to match IDI. These are contained primarily in css/syles.css and css/nav.css. Note the changes to classes in the main navigation menu, with the addition of mainli in particular.
+
+5. Add content and menu bypass links, and ARIA landmarks for navigation div, and the content div in the globalheader.tpl
+
+<a href="#content" class="skiplink" accesskey="c">jump to content (c)</a><a href="#menu" class="skiplink" accesskey="m">jump to main navigation (m)</a>
+
+Add .sliplink hide/show styles on focus in css/styles.css
+
+
+6. Hide away the the Add Users feature in tpl/Reservation/create.tpl
+
+<!--
+{if $ShowUserDetails && $ShowParticipation}
+{include file="Reservation/participation.tpl"}
+	{else}
+{include file="Reservation/private-participation.tpl"}
+{/if}
+-->
+
+7. Update the tpl/globalfooter.tpl with:
+
+<footer class="fl-centered fl-site-footer fl-push">
+			<div class="idi-contact-info">
+				205 Richmond Street West, 2nd Floor, Toronto, ON M5V 1V3, Canada
+				<br/>
+				(416) 977-6000, x3968 / <a href="mailto:idi@ocadu.ca">idi@ocadu.ca</a>
+			</div>
+			<div class="idi-cfi">
+				Funded by the <a href="http://www.innovation.ca/">Canada Foundation for Innovation</a>
+				& the <a href="http://www.ontario.ca">Government of Ontario</a>
+			</div>
+		</footer>
+8. Update the Title variable
+
+9. Update the GET_ALL_SCHEDULES query to sort resources type alphabetically
+lib/Databases/Commands/Queries.php
+const GET_ALL_SCHEDULES = 'SELECT * FROM schedules s INNER JOIN layouts l ON s.layout_id = l.layout_id ORDER BY s.name ASC';
+
+10. Change modal dialog sizes to auto fit their content.
+/Web/scripts/admin/edit.js
+
+	function ConfigureAdminDialog(dialogElement, dialogWidth, dialogHeight)
+	{
+		var dialogOpts = {
+		        modal: true,
+		        autoOpen: false,
+		        height: 'auto',
+		        width: 'auto'
+		      /*  height: dialogHeight,
+		        width: dialogWidth */
+		    };
+		        
+		dialogElement.dialog(dialogOpts);
+	}
+	
+11. Manually add IDI logo in tpl/globalheader.tpl, and reference .fl-site-link in css/nav.css
+
+		<div id="logo" class=".fl-site-link"><a href="{$HomeUrl}">
+		<span>Inclusive Design Institute</span></a>
+		<br style="clear:both;" /></div>
+		
+12. Add live regions to various updatedMessage Divs throughout the template files in tpl/. (Search for "Message" in the tpl/ dir) These message are dynamically inserted via ajax
+
+e.g.
+<div id="updatedMessage" class="success" style="display:none" aria-live="assertive">
+
+#######
+#Features to remove?
+schedule>bookings
+my account>open invitations
+browse>reserve this resource>repeat
+
+#######
+#ToDo
+* Where to add the IDI resource ID? To the resource title?
