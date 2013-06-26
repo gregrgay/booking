@@ -281,7 +281,7 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 </div>
 
 <div id="dialogSave" style="display:none;">
-    <div id="creatingNotification" style="position:relative; top:170px;">
+    <div id="creatingNotification" style="position:relative; top:170px;" aria-live="assertive">
 	{block name="ajaxMessage"}
 		{translate key=CreatingReservation}...<br/>
 	{/block}

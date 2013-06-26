@@ -123,7 +123,7 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 	</form>
 </fieldset>
 
-<div id="saveMessage" class="success" style="display:none">
+<div id="saveMessage" class="success" style="display:none" aria-live="assertive">
 {translate key=ReportSaved} <a href="{$Path}reports/{Pages::REPORTS_SAVED}">{translate key=MySavedReports}</a>
 </div>
 

@@ -18,7 +18,7 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 *}
 {include file='globalheader.tpl' cssFiles='scripts/css/colorbox.css'}
 
-<div class="success" style="display:none" id="profileUpdatedMessage">{translate key=YourProfileWasUpdated}</div>
+<div class="success" style="display:none" id="profileUpdatedMessage" aria-live="assertive">{translate key=YourProfileWasUpdated}</div>
 
 <div class="validationSummary error" id="validationErrors">
 	<ul>

@@ -82,7 +82,7 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 	</div>
 {/block}
 
-<div id="defaultSetMessage" class="success hidden">
+<div id="defaultSetMessage" class="success hidden" aria-live="assertive">
 	{translate key=DefaultScheduleSet}
 </div>
 

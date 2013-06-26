@@ -100,6 +100,7 @@ jQuery.noConflict();
 </head>
 <body>
 <!-- Fluid UI Options -->
+
 <div class="flc-uiOptions-fatPanel fl-uiOptions-fatPanel">
     <!-- This is the div that will contain the UI Options component -->
     <div id="myUIOptions" class="flc-slidingPanel-panel flc-uiOptions-iframe"></div>
@@ -147,6 +148,7 @@ jQuery.noConflict();
 </script>
 
 <!-- // End UI Options -->
+
 <div id="wrapper">
 <a href="#content" class="skiplink" accesskey="c">jump to content (c)</a><a href="#menu" class="skiplink" accesskey="m">jump to main navigation (m)</a>
 	<div id="doc">
@@ -275,5 +277,5 @@ jQuery.noConflict();
 			</div>
 		</div>
 		<!-- end #header -->
-		<div id="content">
+		<div id="content" role="mainUdate th">
 		<a name="content" title="content anchor"></a>
