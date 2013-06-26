@@ -25,6 +25,57 @@ jQuery.noConflict();
 <h1>{translate key='ManageResources'}</h1>
 
 <div id="globalError" class="error" style="display:none"></div>
+
+<div class="admin" style="margin-top:30px">
+	<div class="title">
+	{translate key='AddNewResource'}
+	</div>
+	<div>
+		<div id="addResourceResults" class="error" style="display:none;"></div>
+		<form id="addResourceForm" method="post">
+			<table>
+				<tr>
+					<th>{translate key='Name'}</th>
+					<th>{translate key='Schedule'}</th>
+					<th>{translate key='ResourcePermissions'}</th>
+					<th>{translate key='ResourceAdministrator'}</th>
+					<th>&nbsp;</th>
+				</tr>
+				<tr>
+					<td><input type="text" class="textbox required" maxlength="85"
+							   style="width:250px" {formname key=RESOURCE_NAME} />
+					</td>
+					<td>
+						<select class="textbox" {formname key=SCHEDULE_ID} style="width:100px">
+						{foreach from=$Schedules item=scheduleName key=scheduleId}
+							<option value="{$scheduleId}">{$scheduleName}</option>
+						{/foreach}
+						</select>
+					</td>
+					<td>
+						<select class="textbox" {formname key=AUTO_ASSIGN} style="width:170px">
+							<option value="0">{translate key="None"}</option>
+							<option value="1">{translate key="AllUsers"}</option>
+						</select>
+					</td>
+					<td>
+						<select class="textbox" {formname key=RESOURCE_ADMIN_GROUP_ID} style="width:170px">
+							<option value="">{translate key=None}</option>
+						{foreach from=$AdminGroups item=adminGroup}
+							<option value="{$adminGroup->Id}">{$adminGroup->Name}</option>
+						{/foreach}
+						</select>
+					</td>
+					<td>
+						<button type="button"
+								class="button save">{html_image src="plus-button.png"} {translate key='AddResource'}</button>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>
+<br />
 <div class="admin">
 	<div class="title">
 	{translate key='AllResources'}
@@ -223,55 +274,6 @@ jQuery.noConflict();
 </div>
 
 
-<div class="admin" style="margin-top:30px">
-	<div class="title">
-	{translate key='AddNewResource'}
-	</div>
-	<div>
-		<div id="addResourceResults" class="error" style="display:none;"></div>
-		<form id="addResourceForm" method="post">
-			<table>
-				<tr>
-					<th>{translate key='Name'}</th>
-					<th>{translate key='Schedule'}</th>
-					<th>{translate key='ResourcePermissions'}</th>
-					<th>{translate key='ResourceAdministrator'}</th>
-					<th>&nbsp;</th>
-				</tr>
-				<tr>
-					<td><input type="text" class="textbox required" maxlength="85"
-							   style="width:250px" {formname key=RESOURCE_NAME} />
-					</td>
-					<td>
-						<select class="textbox" {formname key=SCHEDULE_ID} style="width:100px">
-						{foreach from=$Schedules item=scheduleName key=scheduleId}
-							<option value="{$scheduleId}">{$scheduleName}</option>
-						{/foreach}
-						</select>
-					</td>
-					<td>
-						<select class="textbox" {formname key=AUTO_ASSIGN} style="width:170px">
-							<option value="0">{translate key="None"}</option>
-							<option value="1">{translate key="AllUsers"}</option>
-						</select>
-					</td>
-					<td>
-						<select class="textbox" {formname key=RESOURCE_ADMIN_GROUP_ID} style="width:170px">
-							<option value="">{translate key=None}</option>
-						{foreach from=$AdminGroups item=adminGroup}
-							<option value="{$adminGroup->Id}">{$adminGroup->Name}</option>
-						{/foreach}
-						</select>
-					</td>
-					<td>
-						<button type="button"
-								class="button save">{html_image src="plus-button.png"} {translate key='AddResource'}</button>
-					</td>
-				</tr>
-			</table>
-		</form>
-	</div>
-</div>
 
 <input type="hidden" id="activeId" value=""/>
 
