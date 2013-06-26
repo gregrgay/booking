@@ -29,6 +29,7 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 <form method="post" action="{$smarty.server.SCRIPT_NAME}">
     <label for="calendarFilter">Filter Resource Types: </label>
     <select name="schedule"  id="calendarFilter" class="textbox">
+    <option value="0" class="schedule" >-- choose --</option>
         {foreach from=$Schedules key=k item=v}
         {if $smarty.post.schedule==$k}
             <option value="{$k}" selected="selected" class="schedule" >{$v}</option>
@@ -252,7 +253,7 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 	<br />
 	{/if}
 {/foreach}
-</div>{$thiscount}
+</div>
 {if count($thiscount) eq 0}
 No {$thistype} found.
 {/if}
