@@ -893,6 +893,6 @@ input:-ms-input-placeholder, input::-moz-placeholder,.input:-moz-placeholder, in
     z-index: 9999;
 }
 .fl-site-nav-main.sticky .idi-nav-links-buffer {
-    background: url("images/divider-stickynav.png") no-repeat scroll center bottom transparent;
+    background: url("../img/divider-stickynav.png") no-repeat scroll center bottom transparent;
     height: 40px;
 }
