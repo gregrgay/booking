@@ -47,7 +47,7 @@ function Calendar(opts, reservations)
 			value.attachReservationPopup(refNum);
 		});
 
-		$('#calendarFilter').change(function() {
+		$('#calendarFilter').keypress(function() {
 			var day = getQueryStringValue('d');
 			var month = getQueryStringValue('m');
 			var year = getQueryStringValue('y');
