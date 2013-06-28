@@ -313,7 +313,7 @@ form.box-form li {
 
 #loginbox {
 	width: 450px;
-	margin: 7em auto 5em;
+	margin: 3em auto 3em;
 }
 
 #loginbox .input, #forgotbox .input {
@@ -832,7 +832,10 @@ a:active{
         background-repeat: no-repeat;
         padding-left:3.5em;
         text-transform: lowercase;
+        text-shadow: 1px 1px 0 #FFFFFF;
         background-color: #E5E5E5 !important;
+        box-shadow: 0 0 2px 1px #CCCCCC inset;
+        width:8em;
 
 }
 .fl-uiOptions-fatPanel .fl-panelBar {
@@ -844,33 +847,52 @@ a:active{
     position: relative;
 }
 .fl-uiOptions-fatPanel .fl-panelBar {
-    border-bottom: 0 !important;
-    height: 5px;
+
     width: 100%;
+    height:1px !important;
 }
 #attributeCategory{
-font-size: 1em;
+    font-size: 1em;
 }
 #filter {
     margin: 15px;
     text-align: center;
 }
 a.skiplink{
-font-size:.001em;
-text-decoration:none;
-color:#cccccc;
+    font-size:.001em;
+    text-decoration:none;
+    color:#cccccc;
 }
 a.skiplink:focus{
-font-size:1em;
-color:#0076B0;
+    font-size:1em;
+    color:#0076B0;
 }
 input:-ms-input-placeholder, input::-moz-placeholder,.input:-moz-placeholder, input::-webkit-input-placeholder{
-font-weight:300;
-color:#eeeeee;
+    font-weight:300;
+    color:#eeeeee;
 }
 #dialogAddResources{
-width:500px !important;
+    width:500px !important;
 }
 .idi-uio-button{
     background-image: url("../img/preferences.png");
+    font-size:.9em;
+}
+.fl-uiOptions-fatPanel{
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+    margin-bottom:2em;
+}
+.flc-uiOptions-iframe{
+    display:none;
+}
+.fl-site-nav-main sticky {
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+}
+.fl-site-nav-main.sticky .idi-nav-links-buffer {
+    background: url("images/divider-stickynav.png") no-repeat scroll center bottom transparent;
+    height: 40px;
 }

@@ -130,7 +130,7 @@ var idi = idi || {};
         idi.makeTopNavSticky();
         idi.keyboardA11y();
     });
-/*
+
     fluid.demands("fluid.slidingPanel", ["fluid.uiOptions", "fluid.uiEnhancer"], {
         options: {
             listeners: {
@@ -141,5 +141,5 @@ var idi = idi || {};
             }
         }
     });
-    */
-});
+    
+})(jQuery);

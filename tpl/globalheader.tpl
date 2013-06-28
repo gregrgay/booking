@@ -25,92 +25,85 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 	<title>{if $TitleKey neq ''}{translate key=$TitleKey args=$TitleArgs}{else}{$Title}{/if} | Inclusive Design Institute</title>
 	<meta http-equiv="Content-Type" content="text/html; charset={$Charset}"/>
 	<meta name="robots" content="noindex" />
-{if $ShouldLogout}
+    {if $ShouldLogout}
 	<meta http-equiv="REFRESH" content="{$SessionTimeoutSeconds};URL={$Path}logout.php?{QueryStringKeys::REDIRECT}={$smarty.server.REQUEST_URI|urlencode}">
-{/if}
+    {/if}
 	<link rel="shortcut icon" href="{$Path}favicon.ico"/>
 	<link rel="icon" href="{$Path}favicon.ico"/>
-<script type="text/javascript" src="{$Path}scripts/idi.js" ></script>
-<script type="text/javascript" src="{$Path}scripts/infusion/MyInfusion.js"></script>
-<script type="javacsript">
-<!--
-jQuery.noConflict();
--->
-</script>
-	{if $UseLocalJquery}
-		<script type="text/javascript" src="{$Path}scripts/js/jquery-1.8.2.min.js"></script>
-		<script type="text/javascript" src="{$Path}scripts/js/jquery-ui-1.9.0.custom.min.js"></script>
-	{else}
-		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js"></script>
-	{/if}
-	<script type="text/javascript" src="{$Path}scripts/phpscheduleit.js"></script>
-	<!-- <script type="text/javascript" src="{$Path}scripts/menubar.js"></script> -->
-		<script type="text/javascript" src="{$Path}scripts/menu_new.js"></script>
-	<style type="text/css">
-		@import url({$Path}css/nav.css);
-		@import url({$Path}css/style.css);
-		{if $UseLocalJquery}
-			@import url({$Path}scripts/css/smoothness/jquery-ui-1.9.0.custom.min.css);
-		{else}
-			@import url(//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/themes/smoothness/jquery-ui.css);
-		{/if}
-		{if $cssFiles neq ''}
-			{assign var='CssFileList' value=','|explode:$cssFiles}
-			{foreach from=$CssFileList item=cssFile}
-			@import url({$Path}{$cssFile});
-			{/foreach}
-		{/if}
-		@import url('{$Path}css/{$CssUrl}');
-		{if $CssExtensionFile neq ''}
-			@import url('{$CssExtensionFile}');
-		{/if}
-	</style>
 
-	{if $printCssFiles neq ''}
-		{assign var='PrintCssFileList' value=','|explode:$printCssFiles}
-		{foreach from=$PrintCssFileList item=cssFile}
-		<link rel='stylesheet' type='text/css' href='{$Path}{$cssFile}' media='print' />
-		{/foreach}
-	{/if}
+    <script type="text/javascript" src="{$Path}scripts/infusion/MyInfusion.js"></script>
+    <script type="javacsript">
+    <!--
+    jQuery.noConflict();
+    -->
+    </script>
+    {if $UseLocalJquery}
+    <script type="text/javascript" src="{$Path}scripts/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="{$Path}scripts/js/jquery-ui-1.9.0.custom.min.js"></script>
+    {else}
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js"></script>
+    {/if}
+    <script type="text/javascript" src="{$Path}scripts/phpscheduleit.js"></script>
+    <script type="text/javascript" src="{$Path}scripts/menu_new.js"></script>
+        
+    <link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/framework/fss/css/fss-layout.css" />
+    <link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/framework/fss/css/fss-text.css" />
+    <link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/components/uiOptions/css/fss/fss-theme-bw-uio.css" />
+    <link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/components/uiOptions/css/fss/fss-theme-wb-uio.css" />
+    <link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/components/uiOptions/css/fss/fss-theme-by-uio.css" />
+    <link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/components/uiOptions/css/fss/fss-theme-yb-uio.css" />
+    <link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/components/uiOptions/css/fss/fss-text-uio.css" />
+    <link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/lib/jquery/ui/css/fl-theme-hc/hc.css" />
+    <link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/lib/jquery/ui/css/fl-theme-hci/hci.css" />
+    <link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/lib/jquery/ui/css/fl-theme-blackYellow/blackYellow.css" />
+    <link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/lib/jquery/ui/css/fl-theme-yellowBlack/yellowBlack.css" />
+    <link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/components/uiOptions/css/FatPanelUIOptions.css" />
 
-	<script type="text/javascript">
-		$(document).ready(function () {
-		initMenu();
-		});
-	</script>
-	
-<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/framework/fss/css/fss-layout.css" />
-<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/framework/fss/css/fss-text.css" />
-<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/components/uiOptions/css/fss/fss-theme-bw-uio.css" />
-<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/components/uiOptions/css/fss/fss-theme-wb-uio.css" />
-<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/components/uiOptions/css/fss/fss-theme-by-uio.css" />
-<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/components/uiOptions/css/fss/fss-theme-yb-uio.css" />
-<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/components/uiOptions/css/fss/fss-text-uio.css" />
+    <style type="text/css">
+        @import url({$Path}css/nav.css);
+        @import url({$Path}css/style.css);
+        {if $UseLocalJquery}
+            @import url({$Path}scripts/css/smoothness/jquery-ui-1.9.0.custom.min.css);
+        {else}
+            @import url(//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/themes/smoothness/jquery-ui.css);
+        {/if}
+        {if $cssFiles neq ''}
+            {assign var='CssFileList' value=','|explode:$cssFiles}
+            {foreach from=$CssFileList item=cssFile}
+            @import url({$Path}{$cssFile});
+            {/foreach}
+        {/if}
+        @import url('{$Path}css/{$CssUrl}');
+        {if $CssExtensionFile neq ''}
+            @import url('{$CssExtensionFile}');
+        {/if}
+    </style>
 
-<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/lib/jquery/ui/css/fl-theme-hc/hc.css" />
-<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/lib/jquery/ui/css/fl-theme-hci/hci.css" />
-<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/lib/jquery/ui/css/fl-theme-blackYellow/blackYellow.css" />
-<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/lib/jquery/ui/css/fl-theme-yellowBlack/yellowBlack.css" />
+    {if $printCssFiles neq ''}
+        {assign var='PrintCssFileList' value=','|explode:$printCssFiles}
+        {foreach from=$PrintCssFileList item=cssFile}
+        <link rel='stylesheet' type='text/css' href='{$Path}{$cssFile}' media='print' />
+        {/foreach}
+    {/if}
 
-<link rel="stylesheet" type="text/css" href="{$Path}scripts/infusion/components/uiOptions/css/FatPanelUIOptions.css" />
-
-
-
+    <script type="text/javascript">
+        $(document).ready(function () {
+        initMenu();
+        });
+    </script>
+    <script type="text/javascript" src="{$Path}scripts/idi.js" ></script>
 </head>
 <body>
 <!-- Fluid UI Options -->
-
 <div class="flc-uiOptions-fatPanel fl-uiOptions-fatPanel">
     <!-- This is the div that will contain the UI Options component -->
     <div id="myUIOptions" class="flc-slidingPanel-panel flc-uiOptions-iframe"></div>
- 
     <!-- This div is for the sliding panel that shows and hides the UI Options controls -->
     <div class="fl-panelBar">
         <button class="flc-slidingPanel-toggleButton fl-toggleButton">Preferences</button>
     </div>
 </div> 
-
 <script type="text/javascript">
     // Instantiate the UI Enhancer component, specifying the table of contents' template URL
     var expire_when = 'Mon, 31 Dec 2015 23:59:00 UTC';
@@ -131,11 +124,10 @@ jQuery.noConflict();
             }
         }
     });
-
     // Start up UI Options
     fluid.uiOptions.fatPanel(".flc-uiOptions-fatPanel", {
         prefix: "{$Path}scripts/infusion/components/uiOptions/html/",
-	          // Provide custom strings for slidingPanel button
+	        // Provide custom strings for slidingPanel button
             slidingPanel: {
                 options: {
                     strings: {
@@ -146,16 +138,13 @@ jQuery.noConflict();
             }
     });
 </script>
-
 <!-- // End UI Options -->
-
 <div id="wrapper">
-<a href="#content" class="skiplink" accesskey="c">jump to content (c)</a><a href="#menu" class="skiplink" accesskey="m">jump to main navigation (m)</a>
+<a href="#content" class="skiplink" accesskey="c">jump to content (c)</a><a href="#mainnav" class="skiplink" accesskey="m">jump to main navigation (m)</a>
 	<div id="doc">
 		<div id="logo" class=".fl-site-link"><a href="{$HomeUrl}">
 		<span>Inclusive Design Institute</span></a>
-		<br style="clear:both;" /></div>
-		
+		<br style="clear:both;" /></div>		
 		<div id="header">
 			<div id="header-top">
 				<div id="signout">
@@ -168,10 +157,11 @@ jQuery.noConflict();
 				{/if}
 				</div>
 			</div>
+			<div class="fl-spacer-el" style="height: 63px; display: none;"></div>
 			<div role="navigation" aria-label="Main menu" id="navigation" class="fl-site-nav-main">
 			<div class="idi-nav-links">
 			<a name="mainnav" title="main navigation"></a>
-			<ul id="menu">
+			<ul id="menu" style="visibility:visible;">
 			<li class="mainli" class><a href="http://inclusivedesign.ca" id="home">Home</a></li>
 					<li class="mainli" ><a href="{$Path}{Pages::BROWSE}">{translate key="Browse"}</a></li>
 			{if $LoggedIn}
@@ -276,6 +266,7 @@ jQuery.noConflict();
 			<!-- end #nav -->
 			</div>
 		</div>
+		<div class="idi-nav-links-buffer"></div>
 		<!-- end #header -->
 		<div id="content" role="mainUdate th">
 		<a name="content" title="content anchor"></a>

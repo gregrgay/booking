@@ -1,21 +1,17 @@
 // If javascript is enabled, make the menu invisible until the proper mouseovers have been defined and give special styles to the submenus
-if (document.getElementById && document.getElementsByTagName) {
-	document.write("<link type=\"text/css\" rel=\"stylesheet\" href=\"nav.css\" />");
-}
 
 window.onload = init;
 
 function init() {
 	if (document.getElementById && document.getElementsByTagName) {
 		var myMenu = document.getElementById("menu").getElementsByTagName("A");
-		if (!myMenu) { return; }
-		else {
+
 			for (var i=0;i<myMenu.length;i++) {
 				myMenu[i].onmouseover = navHoverStyle;
 				myMenu[i].onfocus = navHoverStyle;
 			}
 			document.getElementById("menu").style.visibility = "visible";
-		}
+
 	}
 }
 
