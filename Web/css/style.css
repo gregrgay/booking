@@ -885,14 +885,3 @@ input:-ms-input-placeholder, input::-moz-placeholder,.input:-moz-placeholder, in
 .flc-uiOptions-iframe{
     display:none;
 }
-.fl-site-nav-main sticky {
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 9999;
-}
-.fl-site-nav-main.sticky .idi-nav-links-buffer {
-    background: url("../img/divider-stickynav.png") no-repeat scroll center bottom transparent;
-    height: 40px;
-}

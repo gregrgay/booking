@@ -264,7 +264,7 @@ UL#menu { visibility: hidden; }
     background: url("../img/bg.png") repeat scroll center center transparent;
     height:2.9em;
     margin-top:-.2em;
-    width:66em;
+    width:70em;
     margin-left:auto;
     margin-right:auto;
 
@@ -291,3 +291,14 @@ a:focus,
 
 }
 
+.fl-site-nav-main sticky {
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+}
+.fl-site-nav-main.sticky .idi-nav-links-buffer {
+    background: url("../img/divider-stickynav.png") no-repeat scroll center bottom transparent;
+    height: 40px;
+}

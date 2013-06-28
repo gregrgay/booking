@@ -157,7 +157,6 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 				{/if}
 				</div>
 			</div>
-			<div class="fl-spacer-el" style="height: 63px; display: none;"></div>
 			<div role="navigation" aria-label="Main menu" id="navigation" class="fl-site-nav-main">
 			<div class="idi-nav-links">
 			<a name="mainnav" title="main navigation"></a>
