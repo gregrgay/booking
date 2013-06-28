@@ -25,6 +25,10 @@ var openMenus = new Array();
 // Stores the timer for closing the menu
 var navTimer;
 
+$(document).click(function() {
+    closeAll(0);
+});
+
 function navHoverStyle(e) {
 	if (!e) var e = window.event;
 	if (e.target) var tg = e.target;
